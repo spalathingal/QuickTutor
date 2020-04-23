@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- https://testdriven.io/blog/django-stripe-tutorial/: tutorial for setting up stripe -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user\requestUpdates.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="display-4 FOS">Updates on your requests</h1>
+            </div>
+        </div>
+
+        <div class="req">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="list-group">
+
+                        {% for fillout in accepted %}
+
+                        <li class="list-group-item request">
+                            <p class="card-text">{{ fillout.receiver.first_name}} {{ fillout.receiver.last_name }} has
+                                accepted your request</p>
+                            <p>Class: {{fillout.class_desc}}</p>
+                            <form action="{% url 'charge' %}" method="post">
+                            {% csrf_token %}
+                            
+                            {% if fillout.time_slot == "1" %}
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button stp_button"
+                            data-key="{{ key }}"
+                            data-description="Tutor Payment: 5-15 minutes"
+                            data-amount="500"
+                            data-locale="auto">
+                            </script>
+                            {% endif %}
+
+                            {% if fillout.time_slot == "2" %}
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button stp_button"
+                            data-key="{{ key }}"
+                            data-description="Tutor Payment: 15-30 minutes"
+                            data-amount="1000"
+                            data-locale="auto">
+                            </script>
+                            {% endif %}
+
+                            {% if fillout.time_slot == "3" %}
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button stp_button"
+                            data-key="{{ key }}"
+                            data-description="Tutor Payment: 30 minutes - 1 hour"
+                            data-amount="2000"
+                            data-locale="auto">
+                            </script>
+                            {% endif %}
+
+                            {% if fillout.time_slot == "4" %}
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button stp_button"
+                            data-key="{{ key }}"
+                            data-description="Tutor Payment - More than 1 hour"
+                            data-amount="3000"
+                            data-locale="auto">
+                            </script>
+                            {% endif %}
+                            </form>
+                            <a href="{% url 'log' fillout.receiver.username %}" class="btn btn-secondary" role="button">Message Tutor </a>
+                            <a href="{% url 'delete' fillout.id %}" class="btn btn-secondary" type = 'submit' value='Delete'>Delete</a>
+                        </li>
+
+                        <hr/>
+                        {%empty%}
+                            <h4>You have no accepted requests</h4>
+                        {% endfor %}
+                        
+                        {% for fillout in awaiting %}
+
+                        <li class="list-group-item request">
+                            <p class="card-text">{{ fillout.receiver.first_name}} {{ fillout.receiver.last_name }} has
+                                not responded to your request</p>
+                            <p>Class: {{fillout.class_desc}}</p>
+                            <a href="{% url 'delete' fillout.id %}" class="btn btn-secondary" type = 'submit' value='Delete'>Cancel Request</a>
+                        </li>
+                        
+                        <hr/>
+                        {%empty%}
+                            <h4>You have no pending requests</h4>
+                        {% endfor %}
+
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+</body>

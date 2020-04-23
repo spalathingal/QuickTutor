@@ -1,0 +1,94 @@
+.row {
+    text-align: center;
+}
+
+.ttl {
+    color: black!important;
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+}
+
+.listItem {
+    background-color: #BBBBBB;
+    color: white;
+    margin-bottom: .5rem;
+    width: 50%;
+}
+
+.list-group-item{
+    padding-bottom: 0.1rem;
+
+}
+
+.list-group-item:last-child {
+    margin-bottom: 1rem;
+}
+
+.list-group-item:first-child {
+    margin-top: 1rem;
+}
+
+.list-group-item:hover {
+    color: white;
+}
+
+.btn-primary {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+.btn-primary:hover {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+.request:hover {
+    color: black;
+}
+
+.lst {
+    border: 1px black solid;
+    height:45%;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+.upt {
+    margin-top: 1rem;
+    margin-bottom:1rem;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3d6c7f;
+    border-radius: 10px;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
+
+.button_Color{
+    color: white;
+    background-color: #bbbbbb;
+}
+
+
+.button_Color:hover{
+
+    color: white;
+    background-color: #2d2d2f;
+}

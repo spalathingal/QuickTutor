@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user\homeMain.css' %}">
+</head>
+
+
+<div class="container ">
+
+    <div class="card page">
+        <div class="row justify-content-center">
+            <h2 class="welcome">Welcome back, {{ user.first_name }}</h2>
+        </div>
+
+        <div class="row justify-content-center">
+            <h5 class="q">Are you here to...</h5>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card welcome">
+                    <div class="card-body">
+                        <h4 class="card-title">get tutoring help?</h4>
+                        <a href="/gethelp" class="btn btn-secondary">See active tutors</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card welcome">
+                    <div class="card-body">
+                        <h4 class="card-title">check your requests?</h4>
+                        <a href="/requestsUpdate" class="btn btn-secondary">See pending requests</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card welcome">
+                    <div class="card-body">
+                        <h4 class="card-title">be a tutor?</h4>
+                        <a href="/givehelp" class="btn btn-secondary">Go live as a tutor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</div>
+
+</body>

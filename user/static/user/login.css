@@ -1,0 +1,41 @@
+div {
+    text-align: center;
+}
+
+body{
+    overflow-x: hidden!important;
+    font-family: 'Lato', sans-serif; 
+    background: white url('/media/uva.png');
+    background-size: 100% 100%;
+}
+
+.loginbox {
+    margin-top: 10%;
+}
+
+.info {
+    text-align: left;
+    list-style-position: inside;
+}
+
+.modal-title {
+    font-size: xx-large;    
+}
+
+.col-md-7 {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    background: rgba(0,0,0,0.6)!important;
+    border-radius: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+h1 {
+    padding-top: 1.5rem;
+}
+
+h4{
+    color:white;
+    font-weight: 700;
+    font-size: 1.25rem;
+}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<link rel="stylesheet" type="text/css" href="{% static 'user/send.css' %}">
+
+<body>
+	<div class="container">
+		<div class="text-center">
+			<h6 class="display-4" style="margin-top: 8rem; margin-bottom: 1rem;">Inbox</h6>
+			<p class="par">Click to see messages between you and another user</p>
+			<small class="sml">Conversations that have unread messages appear green and bold</small>
+			{% if page_obj %}
+				{% for pal in page_obj %}
+					{% if pal in pen_pals_unread %}
+						<div class="list-group">
+							<div class="row justify-content-center">
+								<a href="{% url 'log' pal.username %}" class="list-group-item listItemUnread">{{pal.first_name}} {{pal.last_name}}</a>
+							</div>
+						</div>
+					{% else %}
+						<div class="list-group">
+							<div class="row justify-content-center">
+								<a href="{% url 'log' pal.username %}" class="list-group-item listItem" >{{pal.first_name}} {{pal.last_name}}</a>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<p>No messages yet</p>
+			{% endif %}
+
+
+		</div>
+	</div>
+</body>
+<footer>
+	<div class="container text-center">
+		{% if page_obj.has_previous %}
+			<a href="?page=1" >&laquo; first</a> | 
+			<a href="?page={{ page_obj.previous_page_number }}">prev</a>
+		{% else %}
+		<a disabled>&laquo; first</a> | 
+		<a disabled>prev</a>
+		{% endif %}
+
+		| {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} |
+
+		{% if page_obj.has_next %}
+			<a href="?page={{ page_obj.next_page_number }}">next</a> | 
+			<a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+		{% else %}
+			<a disabled>next</a> |
+			<a disabled>last &raquo;</a>
+		{% endif %}
+	</div>
+	
+</footer>
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+

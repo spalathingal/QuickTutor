@@ -1,0 +1,84 @@
+.row {
+    text-align: center;
+}
+
+.ttl {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+}
+
+.FOS{
+    color: black!important;
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+
+}
+
+.listItem {
+    background-color: #3D6C7F;
+    color: white;
+    margin-bottom: .5rem;
+    width: 50%;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 1rem;
+}
+
+.list-group-item:first-child {
+    margin-top: 1rem;
+}
+
+.list-group-item:hover {
+    color: white;
+}
+
+.btn-primary {
+    background-color: #3d6c7f;
+    border-color: #3d6c7f;
+}
+
+.btn-primary:hover {
+    background-color: #3d6c7f;
+    border-color: #3d6c7f;
+}
+
+.request{
+    margin-top: 1 rem;
+    margin-bottom: 1 rem;
+}
+
+.request:hover {
+    color: black;
+}
+
+.req {
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
+
+
+.stripe-button-el {
+    color: white;
+    background-color: #bbbbbb;
+}
+
+
+.stripe-button-el:hover{
+
+    color: white;
+    background-color: #2d2d2f;
+}
+
+h4{
+    color: black;
+    font-style: normal;
+    font-weight: normal;
+}

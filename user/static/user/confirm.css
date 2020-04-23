@@ -1,0 +1,21 @@
+.txt{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.title{
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+}
+
+.h1Confirm{
+    color: black!important;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}

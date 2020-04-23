@@ -1,0 +1,118 @@
+<!-- https://www.youtube.com/watch?v=vU0VeFN-abU&list=PLLRM7ROnmA9EGO3TOlWLgrc46EhTgj1Ih&index=5 Link to tutorial for filtering -->
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user\gethelp.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="display-4 ttl">Available Tutors</h1>
+                <h5>Filter Tutors</h5>
+                    <form method="GET" action="./gethelp">
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-4">
+                                <div class="input-group">
+                                    <input class="form-control py-2 border" type="search" name="classes_taken" placeholder="Classes taken" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-4">
+                                <div class="input-group">
+                                    <input class="form-control py-2  border" type="search" name="year" placeholder="Graduation year" />
+                                </div>
+                            </div>     
+                            <div class="form-group col-1">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>
+        <div class="lst">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+
+                {% if available_tutors %}
+                    {% for tutor in available_tutors %}
+                    <div class="list-group">
+                        <div class="row justify-content-center">
+                            {% ifequal tutor.year None %}
+                            <a data-toggle="modal" href="" data-target="#{{tutor.user}}" class="list-group-item listItem"><b>{{tutor.user.first_name}} {{tutor.user.last_name}}</b> <p>Classes they can help with:
+                                {{tutor.classes_taken}}
+                             </p></a>
+                            
+                            {% else %}
+                            <a data-toggle="modal" href="" data-target="#{{tutor.user}}" class="list-group-item listItem"><b>{{tutor.user.first_name}} {{tutor.user.last_name}}</b> | <i>Class of {{tutor.year}}</i> <p>Classes they can help with:
+                                {{tutor.classes_taken}}
+                             </p></a>
+                            {% endifequal %}
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="{{tutor.user}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">{{tutor.user.first_name}} {{tutor.user.last_name}}'s Profile
+                                    </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {% ifequal tutor.year None %}
+                                    <p>Year: N/A</p>
+                                    {% else %}
+                                    <p>Year: {{tutor.year}}</p>
+                                    {% endifequal %}
+                                    <p>Bio: {{tutor.bio}}</p>
+                                    <p>Classes I can help with: {{tutor.classes_taken}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a  href="{% url 'fill' tutor.user.username %}" class="btn button_Color" role="button">Send A Request </a>
+                                    <!-- <a href="/filloutsheet/" data-target="#{{tutor.user}}">Send Request</a> -->
+                                    <a href="{% url 'log' tutor.user.username %}" class="btn button_Color" role="button">Message Tutor </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+                {% else %}
+                <h2>Unfortunately, no tutors are available right now.</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+
+        {% endblock %}
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+
+</body>

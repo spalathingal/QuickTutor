@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<link rel="stylesheet" type="text/css" href="{% static 'user/log.css' %}">
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <h2 class="display-4 title">Messages between you and {{pal.first_name}} {{pal.last_name}}</h2>
+        </div>
+    </div>
+    <div class="container containerCB">
+        <div class="container chatBox">
+            {% if coris %}
+                {% for m in coris %}
+                    {% ifequal m.sender pal %}
+                        <br>
+                        <div class="row justify-content-start">
+                            <div class="col-md-5 received">
+                                <p>{{pal.first_name}} {{pal.last_name}} ({{ m.sender.email }}):</p>
+                                <p>{{m.msg_content}}</p>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <br>
+                        <div class="row justify-content-end">
+                            <div class="col-md-5 sent">
+                                <p>You:</p>
+                                <p>{{m.msg_content}}</p>
+                            </div>
+                        </div>
+                    {% endifequal %}
+
+                {% endfor %}
+                {% else %}
+                    <p>Begin Correspondence</p>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <form method="POST" class="chat-form" novalidate>{% csrf_token %}
+                    <div class="row justify-content-center">
+                        {{ form.msg_content }}
+                        <button type="submit" class="save btn button_Color">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+

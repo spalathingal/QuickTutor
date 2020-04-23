@@ -1,0 +1,26 @@
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
+
+.FOS{
+    color: black!important;
+    margin-top: 6rem;
+
+}
+
+.button_Color{
+    color: white;
+    background-color: #bbbbbb;
+}
+
+
+.button_Color:hover{
+
+    color: white;
+    background-color: #2d2d2f;
+}

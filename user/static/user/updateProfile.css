@@ -1,0 +1,28 @@
+.form-group {
+    text-align: center;
+}
+
+body{
+    margin-top: 6rem;
+    overflow-x: hidden!important;
+    font-family: 'Lato', sans-serif; 
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
+
+.colUpdated {
+    background-color: #618985;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.pUpdated {
+    margin-bottom: 0px;
+}

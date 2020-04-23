@@ -1,0 +1,56 @@
+<html>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user\Filloutsheet.css' %}">
+</head>
+
+<body>
+
+    <div class="text-center">
+        <h1 class = "display-4 FOS">Please fill out the following form</h1>
+        <p>Help your tutor understand your needs by giving them some information.</p>
+    </div>
+    <form method="post" nonvalidate>
+        {% csrf_token %}
+        <div class="row d-flex justify-content-center">
+            <div class="form-group col-md-6">
+                <p class="text-left">What class do you need help with?</p>
+                {{ form.class_desc|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6">
+                <p class="text-left">About how long do you think you will need help for?</p>
+                {{ form.time_slot|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6">
+                <p class="text-left">Please provide a brief description of what you need help with.</p>
+                {{ form.help_desc|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6">
+                <p class="text-left">Please select all places where you would be okay meeting.</p>
+                {{ form.meeting_places|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" href = "confirm.html" class="btn button_Color" role="button">Submit</button>
+        </div>
+    </form>
+
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

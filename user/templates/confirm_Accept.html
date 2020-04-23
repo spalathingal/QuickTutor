@@ -1,0 +1,43 @@
+<html>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user\confirm.css' %}">
+    <title>Thank you!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center title">
+            <h1 class ="h1Confirm">You have accepted the appointment!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 txt">
+                <p>Your tutee will receive a notification of your acceptance. If the student decides to move
+                    forward with the appointment, you will be paid shortly and most likely receive a message from
+                    the student.
+                </p>
+                <p>If you would like to send a message to {{sheet.sender.first_name}}, you can click on the button below. 
+                </p>
+                <a href="{% url 'log' sheet.sender.username %}" class="btn btn-secondary" role="button">Message {{sheet.sender.first_name}}</a>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

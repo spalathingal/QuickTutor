@@ -1,0 +1,45 @@
+.tl {
+    margin-top: 1.5rem;
+}
+
+.content {
+    margin-top: 1rem;
+}
+
+hr {
+    border-top: 3px solid #3d6c7f;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
+
+.h1About{
+    text-align: center;
+    margin-top: 2rem;
+    color: black!important;
+    font-weight: 300;
+    /* font-size: 2rem; */
+    margin-right: 1rem!important;
+}
+
+.h1Desc{
+    text-align: center;
+    margin-top: 2rem;
+    color: black!important;
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-right: 1rem!important;
+}
+
+.specialRow{
+    margin-bottom: 3rem;
+}
+
+.extraPadding{
+    margin-top: 2rem;
+}

@@ -1,0 +1,71 @@
+<!-- info button image: https://www.google.com/search?q=information+button&rlz=1C1CHBF_enUS844US844&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNk--KsOHnAhWclXIEHQ6dA-0Q_AUoAXoECA0QAw&biw=710&bih=667#imgrc=ml_zOIZD4TYPEM -->
+<!-- https://medium.com/@jainsahil1997/simple-google-authentication-in-django-58101a34736b: tutorial to create login -->
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'user/login.css' %}">
+
+
+<body>
+  <div class="container loginbox">
+  <div class="row flex-row justify-content-center">
+    <div class="col-md-7">
+      <h1>
+        Welcome to QuickTutor
+        <a data-toggle="modal" href="" data-target="#exampleModal">
+          <img src="{% static 'user/info.png' %}" alt="info button" height="25" width="25"/>
+        </a>
+      </h1>
+      <h4>Sign in to begin a session</h4>
+      <br>
+      <a href="{% url 'social:begin' 'google-oauth2' %}?next=/">
+      <img id="signInButton" src="http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png" onclick="document.getElementById('signInButton').src='http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png'" width = "300">
+      </a>
+      <br>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title">About QuickTutor</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4>QuickTutor is a web application designed to connect students to nearby tutors.</h4>
+          <div class="info">
+            <p><b>As a tutee, you will be able to:</b></p>
+            <ul class="info">
+              <li>Make a tutee profile to send requests for help</li>
+              <li>Access a list of available tutors</li>
+              <li>Send requests to tutors for help</li>
+            </ul>
+
+            <p><b>As a tutor, you will be able to:</b></p>
+            <ul class="info">
+              <li>Make a tutor profile showing subjects you can help in</li>
+              <li>Get requests for help based on your profile</li>
+              <li>Receive payment for your services</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}

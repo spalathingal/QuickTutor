@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user\givehelp.css' %}">
+</head>
+
+<body>
+
+    <div class="row justify-content-center">
+        <h1 class="display-4 ttl">Tutee Requests</h1>
+    </div>
+    {% ifequal tut.active_tutor False %}
+
+    <div class="row justify-content-center">
+        <small>Set yourself as an active tutor first!</small>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row flex-row justify-content-center">
+            <fieldset class="form-group col-2 checkbox">
+                {{ at_form|crispy }}
+            </fieldset>
+        </div>
+        <div class="row flex-row justify-content-center">
+            <div class="form-group col-2">
+                <button class="btn button_Color" type="submit">Go live!</button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    {% else %}
+
+
+
+        <div class="row justify-content-center">
+            {% for tutor in received %}
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{tutor.sender.first_name}} {{tutor.sender.last_name}}</h5>
+                        <p class="card-text">
+                            {% ifequal tutor.sender.year None %}
+                            <p>Year: N/A</p>
+                            {% else %}
+                            <p>Year: {{tutor.sender.year}}</p>
+                            {% endifequal %}
+                            <p>Class {{tutor.sender.first_name}} needs help with: {{tutor.class_desc}}</p>
+                            <p>Description: {{tutor.help_desc}}</p>
+                            <p>Locations where {{tutor.sender.first_name}} would be okay meeting: {{tutor.meeting_places}}
+                            </p>
+                            <p>Length of session: {{tutor.get_time_slot_display}}</p>
+                        </p>
+                        <form method="post" nonvalidate>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="{% url 'accepttutee' tutor.id %}"
+                                        class="btn btn-outline-secondary btn-lg">Accept</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="{% url 'rejecttutee' tutor.id %}"
+                                        class="btn btn-outline-secondary btn-lg">Remove</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="accept" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Thanks!</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            We will send a message to your tutor.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% empty %}
+
+                <h3 class="notify">You have no requests right now</h3>
+                <p>Refresh the page to check to see if you have new requests. Make sure you've filled out
+                    what classes you have taken in your profile so that tutees can find you.
+                </p>
+
+            {% endfor %}
+
+
+        
+
+    </div>
+
+    
+    {% endifequal %}
+
+
+
+    {% endblock %}
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+
+</body>

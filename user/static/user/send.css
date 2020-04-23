@@ -1,0 +1,73 @@
+.recip {
+    margin-right: 1rem;
+}
+
+.title {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    width: inherit;
+}
+
+.message {
+    margin-bottom: 0rem;
+}
+
+.listItem {
+    background-color:	#BBBBBB;
+    color: white;
+    margin-bottom: 1rem;
+    width: 50%;
+}
+
+.listItemUnread {
+    background-color: #2F4F4F;
+    color: white;
+    margin-bottom: 1rem;
+    width: 50%;
+    font-weight: bold;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 1rem;
+}
+
+.list-group-item:hover {
+    color: white;
+}
+
+h6{
+    color:black;
+    font-size: 2.5rem;
+    
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
+
+a {
+    color: #618985;
+}
+
+a:hover {
+    color: #618985;
+}
+
+.par {
+    margin-bottom: 0;
+}
+
+.sml {
+    margin-bottom: 1rem;
+}
+
+.list-group {
+    margin-top: 1rem;
+}

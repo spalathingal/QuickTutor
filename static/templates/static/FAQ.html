@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'stat\FAQ.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+    <h2 class="display-4 text-center FAQcontainer">Frequently Asked Questions</h>
+</div>
+
+<!-- Bootstrap FAQ - START -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="panel-group col-md-8" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle linkColor collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How do I register?</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        When you log in the first time to <strong>QuickTutor</strong> through Google, your account is registered. If you want to 
+                        change anything on your profile, click on the Update Profile link on the Profile page.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle linkColor collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">How can I become a tutor?</a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Anyone can be a tutor! There is no registration process. To become a live tutor, all you have to do 
+                        is update your profile to show all of the subjects you can help out with! After this, make sure to "go live" 
+                        by ensuring that your Active Tutor box is checked.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle linkColor collapsed" role = "button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">How do tutors get paid?</a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        All payments will be processed by our system online. We will accept payments made through <strong>Stripe</strong>.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle linkColor collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">How can I get help from a tutor?</a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       On the home page, go to the "See list of tutors" link to see all of the active tutors. You can search through the list to find a tutor 
+                       who fits your needs. Then, after clicking on their name, you can send them a message to ask clarifying questions or send them a request
+                       to be tutored! If your request for help is accepted, you will be notified on the "List of Tutors" page, and if your request is denied, 
+                       it will be removed from your pending requests. 
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle linkColor collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">How much does tutoring cost?</a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Pricing for <b>QuickTutor</b> is fixed depending on the length of time you requested. When you fill out a request to be tutored, you must
+                        select a time interval for how long you would like to be tutored for. Each time interval has a set amount that your tutor will be paid, regardless of how long
+                        the actual meeting was. (For example, if you request a tutor for 15-30 minutes, you will have to pay X amount, no matter how long your session lasts.)
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="linkColor collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Is it safe?</a>
+                    </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Yes. We do not ask for private information, and meeting places are restricted to pre-approved, public
+                        university study areas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+
+    }
+
+</style>
+
+<!-- Bootstrap FAQ - END -->
+
+</div>
+
+</body>
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

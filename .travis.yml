@@ -1,0 +1,19 @@
+language: python
+python:
+- '3.6'
+cache: pip
+install:
+- pip install -r requirements.txt
+script:
+- python manage.py test
+services:
+- postgresql
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: afJj6KcG/jjj5gI+H8JW+d5ZeKKaWRoCMEsA5fAqWF7gS9q42eUUYzfyX5+Nhau5iUpg8CCO9CpDKSjbn1ahg+MRwrp5Zx2gGA6fYwTlD5uvEuw7Ts0VIenoSx9avF61eISUbXAbOmZgt8ZJhKNlmYz3C4ew14gAAlT8MxVh0MIY5qCGvGFqi+LqzjH2AdrsVL6fhcAppTj2dNKiKC1rJdWOJ7KN6i5I0R0513IShYM9Cpm2YNYoSk1E0f0JLMuwYYMniMpXZNiWdWFW9LKeqjD/IzNTqLYrkg6O8yIavRnOVZPYSKKjcMHis+wphx0l0230VZ9d8im8Dq3GCv+K76RJX/U/4kfoZOoRSP79IL9354GQaZs+oZY8K1bqz4XPPxViuCZXX+K2oQet3LGxMMAIWDVrSek96xHI+yHzGI7ZJFUKzS4znNb5NyxN32N34l3OWDcq72+Nv+G1eBByeNbilULLA9bCsF8rwywBPzpvRanZ3dotkv4taxmTvKvCVDA+nUhLyem0xUxmlDJIMTA0Hk5vDwdt/nx5aYti0erDd6TXAkDBOicsyLPNk3ruvckoEzkhYMsSVNvaJ5VZor3jcHluPCe30EOIXExWNgUxmr2DwhbmVgoC+ulHaBQvVS9H0G46Ss8HN7RtPNkCuHubrnJ68LQDhW5SrmpWLWY=
+  app: quick-tutor-tf
+  on:
+    repo: uva-cs3240-s20/project-101-team-falcon

@@ -1,0 +1,33 @@
+.picAndName {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+}
+
+.cardBlock {
+    margin-bottom: 2rem;
+}
+
+.update {
+    text-align: center;
+    color:#808080;
+}
+
+.hding {
+    text-align: center;
+}
+
+.h2 {
+    text-align: center;
+}
+
+.update:hover {
+    color: black;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}

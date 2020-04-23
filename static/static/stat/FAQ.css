@@ -1,0 +1,50 @@
+.tl {
+    margin-top: 1.5rem;
+}
+
+.FAQh1 {
+    color: black!important;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.FAQcontainer{
+    margin-top: 8rem;
+}
+
+.content {
+    margin-top: 1rem;
+}
+
+hr {
+    border-top: 3px solid #3d6c7f;
+}
+
+.linkColor {
+    color: white;
+}
+
+.linkColor:hover{
+    color: white;
+}
+
+.panel-title {
+    text-align: center;
+    border: 1px white;
+    background-color: #bbbbbb;
+    border-radius: 10px;
+}
+
+.panel {
+    margin-top: 1rem; 
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #618985!important;
+}
